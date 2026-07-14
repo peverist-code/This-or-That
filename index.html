@@ -1,1 +1,172 @@
-Replace this content with your Cold-or-Allergy content.
+<!DOCTYPE html> 
+<html> 
+<!-- The following code has been developed by Mrs. Everist and will gage if your workspace has be cleaned appropriately.   This code is not for entertainment purposes.  Any user of this code does so at their own risk. Code creators are not liable for anything related to this code.
+ 
+ 
+Authors in chronological order of contribution:
+[peverist-code]
+	
+Further Information:
+https://www.w3schools.com/w3css/default.asp
+https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-file
+ 
+Research Educator:
+Timothy Riedel
+triedel@utexas.edu
+ 
+Brief Description of Goal of Code:
+[This app is a guide to help you determine if your work space is clean or messy based on Mrs. Everist's standards.]	
+Known Issues:
+[None]
+
+-->
+	
+   <head> 
+      <title>Tidy vs Messy</title>  
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="mobile-web-app-capable" content="yes">
+      <link rel="stylesheet" href="w3.css">
+      <link rel="stylesheet" href="w3-colors-flat.css">
+   </head> 
+
+
+<script>
+        var tidy_count = 0;
+        var messy_count = 0;
+        var tiddy_percent = 0;
+        var messy_percent = 0;
+
+
+        function tidyAdd(){
+            tidy_count = tidy_count + 1;
+		    alert("tidy_count is " + tidy_count + "\nmessy_count is " + messy_count);
+        }
+
+        function messyAdd(){
+            messy_count = messy_count + 1;
+            alert("tidy_count is " + tidy_count + "\nmessy_count is " + messy_count);
+        }
+
+        function changeText(){
+            var tidy_percent = tidy_count/(tidy_count + messy_count)*100;
+            var messy_percent = messy_count/(tidy_count + messy_count)*100;
+            var initialText = document.getElementById("results"); 
+            initialText.innerHTML = "Probability it is tidy = " + tidy_percent + "% <br> Probability it is a messy = " + messy_percent + "%"
+        }
+
+</script>
+
+
+
+<style>	
+.body {
+     margin: 0em;
+}
+.page {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: -100vw;
+    overflow-y: auto;
+    z-index: 0;
+    background-color: hsl(0,0%,100%);
+}
+
+  .page:target {
+    left: 0vw;
+    z-index: 1;
+}
+</style>
+
+<body>
+<div id="header" class="w3-flat-peter-river">
+	<h1>Is your workspace tidy?!</h1>
+</div>
+	
+<div id="content" class="w3-container">
+	<p>Not sure if your work space is gonig to pass inspection, complete the short questionaire to determine your level of success when Mrs. Everist comes by to check. /p>
+	
+	<a href="#one" class="w3-btn w3-flat-wet-asphalt w3-square"> Get Started </a>
+	
+	
+</div>
+	
+<div class="page" id="one">
+	<div id="header" class="w3-container w3-flat-nephritis">
+		<h1>Question 1</h1>
+	</div>
+	
+    	<div id="content" class="w3-container">
+        <p>Are the stock supplies put back where they were first collected?</p>    
+    	</div>
+        <a href="#two" onclick="tidyAdd()" class="w3-btn w3-grey w3-round">Yes</a>
+        <a href="#two" onclick="messyAdd()" class="w3-btn w3-grey w3-round">No</a>    
+    </div>
+<footer class="w3-bottom w3-container w3-flat-wisteria">
+	<p>Keep the Lab Clean!</p>
+</footer>
+
+<div class="page" id="two">
+	<div class="w3-container w3-flat-nephritis">
+		<h1>Question 2</h1>
+	</div>
+	
+	<div id="content" class="w3-container">
+		<p>Have your waste products been disposed of properly?</p>
+	</div>
+    <a href="#three" onclick="messyAdd()" class="w3-btn w3-grey w3-round">No</a>
+    <a href="#three" onclick="tidyAdd()" class="w3-btn w3-grey w3-round">Yes</a> 
+    </div>	
+<footer class="w3-bottom w3-container w3-flat-wisteria">
+	<p>Liquid waste goes in the "Waste" Beaker</p>
+</footer>
+
+    <div class="page" id="three">
+	<div class="w3-container w3-flat-nephritis">
+		<h1>Question 3</h1>
+	</div>
+	
+	<div id="content" class="w3-container">
+		<p>Has your work station been wiped down and all spills cleaned up properly?</p>
+	</div>
+    <a href="#four" onclick="messyAdd()" class="w3-btn w3-grey w3-round">No</a>
+    <a href="#four" onclick="tidyAdd()" class="w3-btn w3-grey w3-round">Yes</a> 
+
+<footer class="w3-bottom w3-container w3-flat-wisteria">
+	<p>The Solution to Pollution is Dilution!</p>
+</footer>
+
+  <div class="page" id="four">
+	<div class="w3-container w3-flat-nephritis">
+		<h1>Question 4</h1>
+	</div>
+	
+	<div id="content" class="w3-container">
+		<p>Are there still lab goggles on your table?</p>
+	</div>
+    <a href="#five" onclick="tidyAdd()" class="w3-btn w3-grey w3-round">No</a>
+    <a href="#five" onclick="messyAdd()" class="w3-btn w3-grey w3-round">Yes</a> 
+
+<footer class="w3-bottom w3-container w3-flat-wisteria">
+	<p>Goggles should be wiped down and placed in the goggle cabinet at the end of each lab!</p>
+</footer>
+
+ <div class="page" id="five">
+	<div class="w3-container w3-flat-nephritis">
+		<h1>Results!</h1>
+	</div>
+	
+	<div id="content" class="w3-container">
+		<p id="results">Press the button below to see your results!</p>
+	</div>
+    <a onclick="changeText()" class="w3-btn w3-grey w3-round">My Results!</a>
+     <a href="#one" class="w3-btn w3-grey w3-round">Back To Start</a> 
+    
+
+<footer class="w3-bottom w3-container w3-flat-wisteria">
+	<p>DIY!</p>
+</footer>
+
+</body>
+</html>
